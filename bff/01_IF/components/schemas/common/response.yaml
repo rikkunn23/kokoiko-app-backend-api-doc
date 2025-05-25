@@ -1,0 +1,134 @@
+err-response_400:
+  title: err-response_400
+  description: 各エンドポイントでの400エラーレスポンス
+  type: object
+  properties:
+    code:
+      type: integer
+      format: int
+      description: |-
+        ステータスコード
+        エラーコードを表記する
+      example: 1
+    msg:
+      type: string
+      description: |-
+        ステータスメッセージ
+        エラー内容などを表記する
+      example: 'パラメータ不正です([key1, key2, key3, ...])'
+    param_errors:
+      type: array
+      description: パラメータエラー詳細情報
+      items:
+        $ref: '#/err-response_400_detail'
+  required:
+    - code
+    - msg
+err-response_400_detail:
+  title: err-response_400_detail
+  description: 各エンドポイントでの400エラーレスポンス詳細
+  type: object
+  properties:
+    fields:
+      type: array
+      description: フィールド情報
+      items:
+        type: string
+        example: region_type_cd
+    message:
+      type: string
+      description: エラーメッセージ
+      example: 'パターンエラー パターン=^[0-9]{1,16}(?:,[0-9]{1,16})*$'
+err-response_401:
+  title: err-response_401
+  description: 各エンドポイントでの401エラーレスポンス
+  type: object
+  properties:
+    code:
+      type: integer
+      format: int
+      description: |-
+        ステータスコード
+        エラーコードを表記する
+      example: 401
+    msg:
+      type: string
+      description: |-
+        ステータスメッセージ
+        エラー内容などを表記する
+      example: '認証に失敗しました。'
+    detail:
+      type: string
+      description: |-
+        ステータスメッセージ詳細
+        エラー内容などを表記する
+      example: |-
+        正しい生年月日を入力してください。
+        5回連続で認証に失敗した場合、
+        アカウントの利用が停止されます。
+  required:
+    - code
+    - msg
+err-response_403:
+  title: err-response_403
+  description: 各エンドポイントでの403エラーレスポンス
+  type: object
+  properties:
+    code:
+      type: integer
+      format: int
+      description: |-
+        ステータスコード
+        エラーコードを表記する
+      example: 403
+    msg:
+      type: string
+      description: |-
+        ステータスメッセージ
+        エラー内容などを表記する
+      example: '必要な権限がありません。'
+  required:
+    - code
+    - msg
+err-response_404:
+  title: err-response_404
+  description: 各エンドポイントでの404エラーレスポンス
+  type: object
+  properties:
+    code:
+      type: integer
+      format: int
+      description: |-
+        ステータスコード
+        エラーコードを表記する
+      example: 404
+    msg:
+      type: string
+      description: |-
+        ステータスメッセージ
+        エラー内容などを表記する
+      example: 'リソースが見つかりませんでした'
+  required:
+    - code
+    - msg
+err-response_500:
+  title: err-response_500
+  description: 各エンドポイントでの500エラーレスポンス
+  type: object
+  properties:
+    code:
+      type: integer
+      format: int
+      description: |-
+        ステータスコード
+        エラーコードを表記する
+      example: 1
+    msg:
+      type: string
+      description: |-
+        ステータスメッセージ
+        エラー詳細は出力せずに固定文言を返す
+      example: internal server error
+  required:
+    - code
+    - msg
