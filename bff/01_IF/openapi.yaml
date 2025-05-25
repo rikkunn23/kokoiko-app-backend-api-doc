@@ -31,17 +31,17 @@ paths:
 
 components:
   schemas:
-    # # common
-    # err-response_400:
-    #   $ref: './components/schemas/common/response.yaml#/err-response_400'
-    # err-response_401:
-    #   $ref: './components/schemas/common/response.yaml#/err-response_401'
-    # err-response_403:
-    #   $ref: './components/schemas/common/response.yaml#/err-response_403'
-    # err-response_404:
-    #   $ref: './components/schemas/common/response.yaml#/err-response_404'
-    # err-response_500:
-    #   $ref: './components/schemas/common/response.yaml#/err-response_500'
+    # common
+    err-response_400:
+      $ref: './components/schemas/common/response.yaml#/err-response_400'
+    err-response_401:
+      $ref: './components/schemas/common/response.yaml#/err-response_401'
+    err-response_403:
+      $ref: './components/schemas/common/response.yaml#/err-response_403'
+    err-response_404:
+      $ref: './components/schemas/common/response.yaml#/err-response_404'
+    err-response_500:
+      $ref: './components/schemas/common/response.yaml#/err-response_500'
 
     # master
     response_city_list:

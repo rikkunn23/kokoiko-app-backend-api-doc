@@ -25,7 +25,7 @@ get:
       required: true
       schema:
         type: string
-        example: baitoru_free_api_key
+        example: kokoiko_api_key
     - in: header
       name: X-Request-Id
       description: リクエストID
