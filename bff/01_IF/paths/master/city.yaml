@@ -1,0 +1,92 @@
+get:
+  tags:
+    - master
+  summary: 市区町村一覧取得
+  description: |-
+    ## 概要
+
+    市区町村テーブルから一覧で取得するAPI
+
+    ## 処理概要
+
+    1. DBから情報を取得する
+      - tdfk_cdを渡された場合は都道府県ごと、何も渡されていない場合全て取得する
+      - 市区町村テーブルから 削除されていないレコードを取得する
+      - f_city_cd昇順(自治体コード順)でソートする
+    2. フロントに返却する
+
+    ## 備考
+    - 共通で使用可能にするため、バイトルフリーアプリでは不要な'都道府県コード', '位置情報緯度(ミリ秒)', '位置情報軽度(ミリ秒)', '読み仮名(ひらがな)'も返却する
+  operationId: city.list
+  parameters:
+    - in: header
+      name: X-Api-Key
+      description: APIキー
+      required: true
+      schema:
+        type: string
+        example: kokoiko_api_key
+    - in: header
+      name: X-Request-Id
+      description: リクエストID
+      schema:
+        type: string
+        example: '39e96077-1b68-464a-bb58-e3d71d7c5038'
+    - in: query
+      name: tdfk_cd
+      description: 都道府県コード
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: 正常
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/response_city_list'
+          example:
+            - tdfk_cd: '1'
+              city_cd: '10'
+              tdfk_name: 北海道
+              city_name: 稚内市
+              bms: 45.4156
+              lms: 141.6731
+              city_kana: わっかないし
+            - tdfk_cd: '1'
+              city_cd: '20'
+              tdfk_name: 北海道
+              city_name: 猿払村
+              bms: 45.3306
+              lms: 142.1089
+              city_kana: さるふつむら
+    '400':
+      description: request項目異常
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_400'
+    '401':
+      description: 認証失敗
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_401'
+          examples:
+            APIキー不正:
+              value:
+                code: 401
+                msg: invalid api key
+    '500':
+      description: |-
+        例外エラー
+        主にDB接続異常など。
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_500'
+          examples:
+            DB接続エラー:
+              value:
+                code: 500
+                msg: internal server error

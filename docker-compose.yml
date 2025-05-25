@@ -1,0 +1,23 @@
+services:
+  bff:
+    image: swaggerapi/swagger-ui
+    container_name: bff
+    ports:
+      - "8888:8080"
+    environment:
+      SWAGGER_JSON: /IF/openapi.yaml
+    volumes:
+      - ./bff/01_IF:/IF
+
+
+  # IFをマージしてopenapi.yamlを生成するためのコンテナ
+  bundle:
+    image: node:23-alpine
+    container_name: swagger_cli
+    volumes:
+      - ./bff/01_IF:/IF/bff/01_IF
+      - .github/workflows/dist/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    tty: true
+    profiles:
+      - tools
