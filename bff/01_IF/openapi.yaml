@@ -1,0 +1,50 @@
+openapi: 3.1.0
+tags:
+  - name: master
+    description: マスタ系
+
+info:
+  title: kokoiko app API
+  description: ココイコ IF定義書
+  version: 1.0.0
+  contact:
+    name: ワカハラ事業部
+servers:
+  # - url: 'https://api-free-app.spotbaitoru.com'
+  #   description: '本番環境'
+  # - url: 'https://api-free-app.stg2.baitorufree.com'
+  #   description: 'stage環境'
+  # - url: 'https://api-free-app.dev.baitorufree.com'
+  #   description: 'dev環境'
+  - url: 'http://{host}:{port}'
+    description: 'local環境'
+    variables:
+      host:
+        default: localhost
+      port:
+        default: '8080'
+paths:
+  # master
+  /v1/city/list:
+    $ref: './paths/master/city.yaml'
+
+
+components:
+  schemas:
+    # # common
+    # err-response_400:
+    #   $ref: './components/schemas/common/response.yaml#/err-response_400'
+    # err-response_401:
+    #   $ref: './components/schemas/common/response.yaml#/err-response_401'
+    # err-response_403:
+    #   $ref: './components/schemas/common/response.yaml#/err-response_403'
+    # err-response_404:
+    #   $ref: './components/schemas/common/response.yaml#/err-response_404'
+    # err-response_500:
+    #   $ref: './components/schemas/common/response.yaml#/err-response_500'
+
+    # master
+    response_city_list:
+      $ref: './components/schemas/master/city.yaml#/list'
+    response_city:
+      $ref: './components/schemas/master/city.yaml#/response_city'

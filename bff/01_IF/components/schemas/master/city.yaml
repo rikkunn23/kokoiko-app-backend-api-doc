@@ -1,0 +1,46 @@
+list:
+  title: response_city_list
+  type: object
+  description: 市区町村マスタ情報一覧
+  properties:
+    results:
+      type: array
+      items:
+        $ref: '../../../openapi.yaml#/components/schemas/response_city'
+  required:
+    - results
+response_city:
+  description: 市区町村マスタ情報
+  type: object
+  properties:
+    tdfk_cd:
+      type: string
+      description: 都道府県コードを一意に識別するコード
+    city_cd:
+      type: string
+      description: 市区町村コードを一意に識別するコード
+    tdfk_name:
+      type: string
+      description: 都道府県名
+    city_name:
+      type: string
+      description: 市区町村名
+    bms:
+      type: integer
+      format: int64
+      description: 位置情報緯度(ミリ秒)
+    lms:
+      type: integer
+      format: int64
+      description: 位置情報経度(ミリ秒)
+    city_kana:
+      type: string
+      description: 読み仮名(ひらがな)
+  required:
+      - tdfk_cd
+      - city_cd
+      - tdfk_name
+      - city_name
+      - bms
+      - lms
+      - city_kana
