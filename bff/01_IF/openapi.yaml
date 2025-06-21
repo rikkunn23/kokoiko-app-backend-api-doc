@@ -2,6 +2,8 @@ openapi: 3.1.0
 tags:
   - name: master
     description: マスタ系
+  - name: user
+    description: ユーザ系
 
 info:
   title: kokoiko app API
@@ -27,6 +29,9 @@ paths:
   # master
   /v1/city/list:
     $ref: './paths/master/city.yaml'
+  # user
+  /v1/user/create:
+    $ref: './paths/user/create.yaml'
 
 
 components:
@@ -48,3 +53,6 @@ components:
       $ref: './components/schemas/master/city.yaml#/list'
     response_city:
       $ref: './components/schemas/master/city.yaml#/response_city'
+    # user
+    request_user_create:
+      $ref: './components/schemas/user/create.yaml#/create'
