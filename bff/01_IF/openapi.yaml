@@ -56,3 +56,5 @@ components:
     # user
     request_user_create:
       $ref: './components/schemas/user/create.yaml#/create'
+    response_user_create:
+      $ref: './components/schemas/user/create.yaml#/response_user_create'

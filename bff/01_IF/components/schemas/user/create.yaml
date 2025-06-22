@@ -1,6 +1,7 @@
 create:
   title: request_user_create
   type: object
+  description: ユーザ登録
   properties:
     sei_name:
       type: string
@@ -8,7 +9,7 @@ create:
       type: string
     email:
       type: string
-    phone:
+    tel:
       type: string
     password:
       type: string
@@ -18,28 +19,15 @@ create:
     - sei_name
     - mei_name
     - email
-    - phone
+    - tel
     - password
-
-# update:
-#   title: request_user_update
-#   type: object
-#   properties:
-#     sei_name:
-#       type: string
-#     mei_name:
-#       type: string
-#     email:
-#       type: string
-#     phone:
-#       type: string
-#     password:
-#       type: string
-#       description: |-
-#         パスワードは8文字以上、英数字を含む必要があります。
-#   required:
-#     - sei_name
-#     - mei_name
-#     - email
-#     - phone
-#     - password
+response_user_create:
+  title: response_user_create
+  type: object
+  description: ユーザ登録
+  properties:
+    token:
+      type: string
+      description: ユーザ認証トークン
+  required:
+    - token

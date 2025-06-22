@@ -13,13 +13,6 @@ post:
       schema:
         type: string
         example: kokoiko_api_key
-    # - in: header
-    #   name: Authorization
-    #   description: 認証トークン
-    #   required: true
-    #   schema:
-    #     type: string
-    #     example: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25vIjoxLCJ1c2VyX25hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfZW1haWwiOiJhZG1pbkBhc2lhLmNvbSIsInVzZXJfYXZhdGFyIjoiYWRtaW4iLCJleHAiOjE2MjYwNjIwMzIsImlhdCI6MTYyNjA2MTQzMn0.7'
     - in: header
       name: X-Request-Id
       description: リクエストID
@@ -37,12 +30,19 @@ post:
             sei_name: 山田
             mei_name: 太郎
             email: bitoru_free@example.com
-            phone: '08012345678'
+            tel: '08012345678'
             password: 'password123'
   responses:
     '201':
       description: 正常
       headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/response_user_create'
+          example:
+            value:
+              token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
     '400':
       description: request項目異常
       content:
