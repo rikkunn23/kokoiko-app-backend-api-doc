@@ -1,0 +1,32 @@
+user_login:
+  title: response_user_login
+  type: object
+  description: ユーザログイン
+  properties:
+    email:
+      type: string
+    password:
+      type: string
+      description: |-
+        パスワードは8文字以上、英数字を含む必要があります。
+  required:
+    - email
+    - password
+response_user_login:
+  title: response_user_login
+  type: object
+  description: ユーザログイン
+  properties:
+    access_token:
+      type: string
+      description: JWTアクセストークン
+    refresh_token:
+      type: string
+      description: リフレッシュトークン
+    expires_in:
+      type: integer
+      description: アクセストークンの有効期限（秒数）
+  required:
+    - access_token
+    - refresh_token
+    - expires_in

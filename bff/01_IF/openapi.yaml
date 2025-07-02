@@ -32,6 +32,8 @@ paths:
   # user
   /v1/user/create:
     $ref: './paths/user/create.yaml'
+  /v1/user/login:
+    $ref: './paths/user/login.yaml'
 
 
 components:
@@ -58,3 +60,7 @@ components:
       $ref: './components/schemas/user/create.yaml#/create'
     response_user_create:
       $ref: './components/schemas/user/create.yaml#/response_user_create'
+    request_user_login:
+      $ref: './components/schemas/user/login.yaml#/user_login'
+    response_user_login:
+      $ref: './components/schemas/user/login.yaml#/response_user_login'
