@@ -2,9 +2,9 @@ post:
   operationId: user.post
   tags:
     - user
-  summary: ユーザ登録
+  summary: ユーザログイン
   description: |-
-    ユーザを登録するAPI
+    ユーザをログインするAPI
   parameters:
     - in: header
       name: X-Api-Key
@@ -24,22 +24,20 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../openapi.yaml#/components/schemas/request_user_create'
+          $ref: '../../openapi.yaml#/components/schemas/response_user_login'
         example:
           value:
-            sei_name: 山田
-            mei_name: 太郎
             email: kokoiko@example.com
             tel: '08012345678'
             password: 'password123'
   responses:
-    '201':
+    '200':
       description: 正常
       headers: {}
       content:
         application/json:
           schema:
-            $ref: '../../openapi.yaml#/components/schemas/response_user_create'
+            $ref: '../../openapi.yaml#/components/schemas/response_user_login'
           example:
             value:
               access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
@@ -57,10 +55,7 @@ post:
                 msg: 必須パラメータ不正
                 param_errors:
                   - fields:
-                    - sei_name
-                    - mei_name
                     - email
-                    - phone
                     - password
                     message: 必須パラメータ不正
             未成年登録異常:
