@@ -24,7 +24,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../openapi.yaml#/components/schemas/response_user_login'
+          $ref: '../../openapi.yaml#/components/schemas/request_user_login'
         example:
           value:
             email: kokoiko@example.com
