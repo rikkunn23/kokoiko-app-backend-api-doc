@@ -1,4 +1,4 @@
-login:
+post:
   operationId: user.login
   tags:
     - user
