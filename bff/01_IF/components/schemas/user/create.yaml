@@ -26,8 +26,16 @@ response_user_create:
   type: object
   description: ユーザ登録
   properties:
-    token:
+    access_token:
       type: string
-      description: ユーザ認証トークン
+      description: JWTアクセストークン
+    refresh_token:
+      type: string
+      description: リフレッシュトークン
+    expires_in:
+      type: integer
+      description: アクセストークンの有効期限（秒数）
   required:
-    - token
+    - access_token
+    - refresh_token
+    - expires_in
