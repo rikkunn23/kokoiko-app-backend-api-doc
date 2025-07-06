@@ -24,7 +24,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../openapi.yaml#/components/schemas/response_user_refresh_token'
+          $ref: '../../openapi.yaml#/components/schemas/request_user_refresh_token'
         example:
           value:
             refresh_token: 'dGhpcyBpcyBhIHJlZnJlc2ggdG9rZW4gZm9yIHVzZXIgdG8gcmVmcmVzaA'
