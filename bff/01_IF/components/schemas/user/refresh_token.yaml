@@ -1,0 +1,29 @@
+user_refresh_token:
+  title: request_user_refresh_token
+  type: object
+  description: jwtを再取得するためのリクエスト
+  properties:
+    refresh_token:
+      type: string
+      description: リフレッシュトークン
+  required:
+    - refresh_token
+
+response_user_refresh_token:
+  title: response_user_refresh_token
+  type: object
+  description: jwtを再取得するためのレスポンス
+  properties:
+    access_token:
+      type: string
+      description: JWTアクセストークン
+    refresh_token:
+      type: string
+      description: リフレッシュトークン
+    expires_in:
+      type: integer
+      description: アクセストークンの有効期限（秒数）
+  required:
+    - access_token
+    - refresh_token
+    - expires_in
