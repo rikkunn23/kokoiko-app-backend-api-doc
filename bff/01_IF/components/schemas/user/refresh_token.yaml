@@ -1,7 +1,7 @@
 user_refresh_token:
   title: request_user_refresh_token
   type: object
-  description: ユーザリフレッシュトークン
+  description: jwtを再取得するためのリクエスト
   properties:
     refresh_token:
       type: string
@@ -12,7 +12,7 @@ user_refresh_token:
 response_user_refresh_token:
   title: response_user_refresh_token
   type: object
-  description: ユーザリフレッシュトークンのレスポンス
+  description: jwtを再取得するためのレスポンス
   properties:
     access_token:
       type: string

@@ -1,10 +1,10 @@
 post:
-  operationId: user.login
+  operationId: user.refresh_token
   tags:
     - user
-  summary: ユーザログイン
+  summary: jwt再取得
   description: |-
-    ユーザをログインするAPI
+    jwtを再取得するAPI
   parameters:
     - in: header
       name: X-Api-Key
