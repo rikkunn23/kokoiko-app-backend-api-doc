@@ -2,7 +2,7 @@ post:
   operationId: user.refresh_token
   tags:
     - user
-  summary: jwt再取得
+  summary: jwtの再取得
   description: |-
     jwtを再取得するAPI
   parameters:
