@@ -4,7 +4,8 @@ response_user_my_page:
   description: マイページ情報のレスポンス
   properties:
     user_no:
-      type: int64
+      type: integer
+      format: int64
       description: ユーザNO.
     sei_name:
       type: string
