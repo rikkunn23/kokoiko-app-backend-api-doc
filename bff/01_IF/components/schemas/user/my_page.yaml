@@ -4,7 +4,7 @@ response_user_my_page:
   description: マイページ情報のレスポンス
   properties:
     user_no:
-      type: string
+      type: int64
       description: ユーザNO.
     sei_name:
       type: string
@@ -14,13 +14,12 @@ response_user_my_page:
       description: 名
     email:
       type: string
-      format: email
       description: メールアドレス
     tel:
       type: string
       description: 電話番号
   required:
-    - user_id
+    - user_no
     - sei_name
     - mei_name
     - email
