@@ -3,9 +3,9 @@ response_user_my_page:
   type: object
   description: マイページ情報のレスポンス
   properties:
-    user_id:
+    user_no:
       type: string
-      description: ユーザID
+      description: ユーザNO.
     sei_name:
       type: string
       description: 姓

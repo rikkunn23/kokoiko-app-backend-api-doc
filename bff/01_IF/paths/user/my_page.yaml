@@ -36,7 +36,7 @@ post:
             $ref: '../../openapi.yaml#/components/schemas/response_user_my_page'
           example:
             value:
-              user_id: '1234567890'
+              user_no: '1234567890'
               sei_name: 山田
               mei_name: 太郎
               email: test@mail.com
