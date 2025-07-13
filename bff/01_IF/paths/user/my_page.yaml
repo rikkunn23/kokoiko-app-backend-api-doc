@@ -1,0 +1,91 @@
+post:
+  operationId: user.my_page
+  tags:
+    - user
+  summary: マイページ情報取得
+  description: |-
+    ユーザのマイページ情報を取得するAPI
+  parameters:
+    - in: header
+      name: X-Api-Key
+      description: APIキー
+      required: true
+      schema:
+        type: string
+        example: kokoiko_api_key
+    - in: header
+      name: X-Request-Id
+      description: リクエストID
+      schema:
+        type: string
+        example: '39e96077-1b68-464a-bb58-e3d71d7c5038'
+    - in: Authorization
+      name: Authorization
+      description: Bearerトークン
+      required: true
+      schema:
+        type: string
+        example: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+  responses:
+    '200':
+      description: 正常
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/response_user_my_page'
+          example:
+            value:
+              user_id: '1234567890'
+              sei_name: 山田
+              mei_name: 太郎
+              email: test@mail.com
+              tel: '08012345678'
+    '400':
+      description: リクエストパラメータ異常
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_400'
+          examples:
+            必須パラメータ異常:
+              value:
+                msg: 必須パラメータ不正
+                param_errors:
+                  - fields:
+                    - Authorization
+                    message: 必須パラメータ不正
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_401'
+          examples:
+            トークン不正:
+              value:
+                msg: トークン不正
+    '403':
+      description: アクセス権限エラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_403'
+    '404':
+      description: リソースが見つからない
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_404'
+    '500':
+      description: サーバーエラー
+      content:
+        application/json:
+          schema:
+            $ref: '../../openapi.yaml#/components/schemas/err-response_500'
+          examples:
+            サーバーエラー:
+              value:
+                msg: サーバーエラーが発生しました
+                code: 500
+                details: '詳細なエラーメッセージやスタックトレースがここに含まれることがあります。'

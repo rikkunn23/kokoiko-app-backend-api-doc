@@ -1,0 +1,27 @@
+response_user_my_page:
+  title: response_user_my_page
+  type: object
+  description: マイページ情報のレスポンス
+  properties:
+    user_id:
+      type: string
+      description: ユーザID
+    sei_name:
+      type: string
+      description: 姓
+    mei_name:
+      type: string
+      description: 名
+    email:
+      type: string
+      format: email
+      description: メールアドレス
+    tel:
+      type: string
+      description: 電話番号
+  required:
+    - user_id
+    - sei_name
+    - mei_name
+    - email
+    - tel
