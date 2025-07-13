@@ -34,6 +34,8 @@ paths:
     $ref: './paths/user/create.yaml'
   /v1/user/login:
     $ref: './paths/user/login.yaml'
+  /v1/user/refresh-token:
+    $ref: './paths/user/refresh_token.yaml'
 
 
 components:
@@ -64,3 +66,7 @@ components:
       $ref: './components/schemas/user/login.yaml#/user_login'
     response_user_login:
       $ref: './components/schemas/user/login.yaml#/response_user_login'
+    request_user_refresh_token:
+      $ref: './components/schemas/user/refresh_token.yaml#/user_refresh_token'
+    response_user_refresh_token:
+      $ref: './components/schemas/user/refresh_token.yaml#/response_user_refresh_token'
