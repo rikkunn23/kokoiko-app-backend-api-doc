@@ -36,10 +36,10 @@ post:
             $ref: '../../openapi.yaml#/components/schemas/response_user_my_page'
           example:
             value:
-              user_no: '1234567890'
-              sei_name: 山田
-              mei_name: 太郎
-              email: test@mail.com
+              user_no: 123
+              sei_name: '山田'
+              mei_name: '太郎'
+              email: 'test@mail.com'
               tel: '08012345678'
     '400':
       description: リクエストパラメータ異常
