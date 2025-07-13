@@ -19,7 +19,7 @@ post:
       schema:
         type: string
         example: '39e96077-1b68-464a-bb58-e3d71d7c5038'
-    - in: Authorization
+    - in: header
       name: Authorization
       description: Bearerトークン
       required: true
